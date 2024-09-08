@@ -1,0 +1,11 @@
+FROM openjdk:17.0.2
+
+LABEL maintainer="Diego Flores <dfloresc1602@alumno.ipn.mx>"
+
+WORKDIR /app
+
+COPY ./target/gatewayms-0.0.1-SNAPSHOT.jar .
+
+EXPOSE 9090
+
+ENTRYPOINT ["java","-jar","gatewayms-0.0.1-SNAPSHOT.jar"]

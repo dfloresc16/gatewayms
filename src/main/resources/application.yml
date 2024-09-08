@@ -1,0 +1,23 @@
+#spring.application.name=gatewayms
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+        routes:
+          - id: msvc-authms
+            uri: lb://msvc-authms
+            predicates:
+              - Path=/auth/**
+server:
+  port: 9090
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://host.docker.internal:8761/eureka
