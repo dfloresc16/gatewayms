@@ -12,6 +12,10 @@ spring:
             uri: lb://userms
             predicates:
               - Path=/user/**
+          - id: cvms
+            uri: lb://cvms
+            predicates:
+              - Path=/cv/**
 server:
   port: 9090
 
@@ -22,7 +26,6 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://localhost:8761/eureka
-      #http://host.docker.internal:8761/eureka
+      defaultZone: http://158.23.81.168:8761/eureka
 config:
-  url: http://localhost:8081/auth/validate?token=           
+  url: http://158.23.81.168:8081/auth/validate?token=           
