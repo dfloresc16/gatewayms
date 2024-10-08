@@ -3,29 +3,39 @@ spring:
     name: gateway
   cloud:
     gateway:
-        routes:
-          - id: msvc-authms
-            uri: lb://msvc-authms
-            predicates:
-              - Path=/auth/**
-          - id: userms
-            uri: lb://userms
-            predicates:
-              - Path=/user/**
-          - id: cvms
-            uri: lb://cvms
-            predicates:
-              - Path=/cv/**
+      routes:
+        # Ruta para msvc-authms
+        - id: msvc-authms
+          uri: lb://msvc-authms
+          predicates:
+            - Path=/auth/**
+        
+        # Ruta para userms
+        - id: userms
+          uri: lb://userms
+          predicates:
+            - Path=/user/**
+        
+        # Ruta para cvms
+        - id: cvms
+          uri: lb://cv
+          predicates:
+            - Path=/cv/**
+       
+
 server:
   port: 9090
 
 eureka:
   instance:
+    ip-address: 158.23.81.168
+    instance-id: ${spring.application.name}:${random.value}
     prefer-ip-address: true
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
       defaultZone: http://158.23.81.168:8761/eureka
+
 config:
-  url: http://158.23.81.168:8081/auth/validate?token=           
+  url: http://158.23.81.168:8081/auth/validate?token=
