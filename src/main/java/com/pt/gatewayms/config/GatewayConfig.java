@@ -18,13 +18,13 @@ public class GatewayConfig {
 				.route(r -> r.path("/auth/**")
 						.uri("lb://msvc-authms"))
 				.route(r -> r.path("/user/**")
-						// .filters(f -> f.filter(authFilter))
+						.filters(f -> f.filter(authFilter))
 						.uri("lb://userms"))
 				.route(r -> r.path("/cv/**")
-						/*.filters(f -> f.filter(authFilter))*/
+						.filters(f -> f.filter(authFilter))
 						.uri("lb://cv"))
 				.route(r -> r.path("/interview/**")
-						/*.filters(f -> f.filter(authFilter))*/
+						.filters(f -> f.filter(authFilter))
 						.uri("lb://interview"))
 				.build();
 	}
