@@ -9,6 +9,9 @@ server:
     key-store-password: IpnUpiita2024!
     key-store-type: PKCS12
     key-alias: spring-boot-cert
+logging:
+  file:
+    name: ./logs/msvc-gateway-${date:yyyy-MM-dd}.log # Archivo con fecha en el nombre
 
 eureka:
   instance:
