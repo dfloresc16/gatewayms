@@ -15,14 +15,14 @@ logging:
 
 eureka:
   instance:
-    ip-address: 158.23.246.1
+    ip-address: 158.23.81.23
     instance-id: ${spring.application.name}:${random.value}
     prefer-ip-address: true
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://158.23.246.1/eureka
+      defaultZone: http://158.23.81.23:8761/eureka
 
 config:
-  url: http://158.23.246.1:8081/auth/validate?token=
+  url: http://158.23.81.23:8081/auth/validate?token=
